@@ -33,5 +33,12 @@ export class AuthenticateUserService {
         authorization: `Bearer ${accessTokenResponse.access_token}`
       }
     })
+
+    const { id, name, login, avatar_url } = response.data
+    const user = await PrismaClient.user.findFirst({
+      where: {
+        github_id: id
+      }
+    })
   }
 }
