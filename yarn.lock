@@ -959,6 +959,11 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
+tynt@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tynt/-/tynt-1.2.0.tgz#bd235b1166472bf1ff6bac56c5637dd9eddd9a07"
+  integrity sha512-lv26wSeMjHfcCDKWOsDWWBUgxYHtLTM92Q5muMxjA8tk/cLjHNcygz60aMAb/st1EmUSzaqBGHsk1DJVKTMTlw==
+
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
   resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"

@@ -12,7 +12,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "prisma": "^3.3.0"
+    "prisma": "^3.3.0",
+    "tynt": "^1.2.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
