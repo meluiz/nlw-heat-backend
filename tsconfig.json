@@ -12,6 +12,10 @@
       "@prismajs/*": [ "prismajs/*" ],
       "@service/*": [ "services/*" ],
       "@start/*": [ "start/*" ]
-    }
+    },
+    "typeRoots": [
+      "@types",
+      "node_modules/@types",
+    ]
   }
 }
