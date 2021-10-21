@@ -21,7 +21,6 @@ This server is running on ${tynt.Blue(process.env.PORT)}
 
 Note: Project was make by meluiz.com
 `
-  console.clear()
   console.log(log)
 })
 
