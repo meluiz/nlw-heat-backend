@@ -1,5 +1,11 @@
 import { Router, Request, Response } from 'express'
+
+/* ------| Middleware |------ */
+import { isAuthenticated } from '@app/middleware/isAuthenticated'
+
+/* ------| Controllers |------ */
 import { UserController } from '@app/controllers/http/UserController'
+import { MessageController } from '@app/controllers/http/MessageController'
 
 const router = Router()
 
@@ -13,5 +19,6 @@ router.get('/signin/callback', (request: Request, response: Response) => {
 })
 
 router.post('/authenticate', new UserController().handle)
+router.post('/messages', isAuthenticated, new MessageController().handle)
 
 export default router
