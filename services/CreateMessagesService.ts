@@ -1,10 +1,10 @@
 import PrismaClient from "@prismajs/client";
 
 export class CreateMessagesService {
-  async execute(text: string, user_id: string) {
-    const message = await PrismaClient.message.create({
+  async execute(message: string, user_id: string) {
+    const m = await PrismaClient.message.create({
         data: {
-          text,
+          message,
           user_id
         },
         include: {
