@@ -1,16 +1,30 @@
-import tynt  from 'tynt'
+import { Server } from 'socket.io'
 import express from 'express'
 import dotenv from 'dotenv'
+import http from 'http'
+import tynt  from 'tynt'
 
 import router from '@start/routes'
 
 dotenv.config()
+
 const application = express()
+const server = http.createServer(application)
 
 application.use(express.json())
 application.use(router)
 
-application.listen(process.env.PORT, () => {
+export const io = new Server(server, {
+  cors: {
+    origin: '*'
+  }
+})
+
+io.on('connection', (socket) => {
+  console.log(`User connected with successfully. ID: ${socket.id}`)
+})
+
+server.listen(process.env.PORT, () => {
   const log = `
 ${tynt.Green('Server is running')}
 
@@ -23,4 +37,5 @@ Note: Project was make by meluiz.com
 `
   console.log(log)
 })
+
 
