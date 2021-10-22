@@ -21,5 +21,6 @@ router.get('/signin/callback', (request: Request, response: Response) => {
 router.post('/authenticate', new UserController().handle)
 router.post('/profile', isAuthenticated, new UserController().profile)
 router.post('/messages', isAuthenticated, new MessageController().handle)
+router.post('/messages/three', new MessageController().GetLastThreeMessages)
 
 export default router
