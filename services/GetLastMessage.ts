@@ -1,10 +1,10 @@
 import PrismaClient from "@prismajs/client";
 
 
-export class GetLastThreeMessagesService {
-  async execute() {
+export class GetLastMessage {
+  async execute(quantity: number) {
     const messages = await PrismaClient.message.findMany({
-      take: 3,
+      take: quantity,
       orderBy: {
         created_at: 'desc'
       },
