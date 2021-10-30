@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 /* ------| Services |------ */
 import { CreateMessagesService } from '@service/CreateMessagesService'
-import { GetLastThreeMessagesService } from '@service/GetLastThreeMessagesService'
+import { GetLastMessage } from '@service/GetLastMessage'
 
 export class MessageController {
   async handle(request: Request, response: Response) {
@@ -19,10 +19,19 @@ export class MessageController {
     }
   }
   
-  async GetLastThreeMessages(request: Request, response: Response) {
-    const service = new GetLastThreeMessagesService()
+  async GetLastMessage(request: Request, response: Response) {
+    const service = new GetLastMessage()
     try {
-      const result = await service.execute()
+      const { quantity } = request.params
+      
+      if (isNaN(Number(quantity))) {
+        return response.status(502).json({
+          type: 'not_accepted',
+          error: `The param :quantity needs to be a number. Received '${quantity}'.`
+        })
+      }
+
+      const result = await service.execute(Number(quantity))
       return response.json(result)
     } catch (error) {
       return response.json({ error: error.message })
