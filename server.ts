@@ -3,6 +3,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import http from 'http'
 import tynt  from 'tynt'
+import cors from 'cors'
 
 import router from '@start/routes'
 
@@ -11,6 +12,7 @@ dotenv.config()
 const application = express()
 const server = http.createServer(application)
 
+application.use(cors)
 application.use(express.json())
 application.use(router)
 
