@@ -12,7 +12,7 @@ dotenv.config()
 const application = express()
 const server = http.createServer(application)
 
-application.use(cors)
+application.use(cors())
 application.use(express.json())
 application.use(router)
 
